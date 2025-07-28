@@ -11,7 +11,6 @@ import (
 	"library-management/internal/handlers" 
 )
 
-// Authenticate is a middleware to validate JWT tokens
 func Authenticate() fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		authHeader := c.Get("Authorization")
@@ -58,7 +57,6 @@ func Authenticate() fiber.Handler {
 	}
 }
 
-// Authorize is a middleware to check user roles
 func Authorize(requiredRoles ...string) fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		userRole, ok := c.Locals("userRole").(string)

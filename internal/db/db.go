@@ -14,13 +14,10 @@ import (
 	"library-management/internal/models"
 )
 
-// DB is the global GORM database connection instance
 var DB *gorm.DB
 
-// JWTSecret is the global JWT secret key
-var JWTSecret string // ADD THIS LINE
+var JWTSecret string
 
-// ConnectDatabase initializes the database connection and performs migrations
 func ConnectDatabase() {
 	_, b, _, _ := runtime.Caller(0)
 	basepath := filepath.Dir(b)
@@ -37,11 +34,10 @@ func ConnectDatabase() {
 		log.Fatal("DATABASE_URL not set in .env file")
 	}
 
-	// Load JWT Secret
-	JWTSecret = os.Getenv("JWT_SECRET") // ADD THIS LINE
-	if JWTSecret == "" {                // ADD THIS LINE
-		log.Fatal("JWT_SECRET not set in .env file") // ADD THIS LINE
-	} // ADD THIS LINE
+	JWTSecret = os.Getenv("JWT_SECRET")
+	if JWTSecret == "" {
+		log.Fatal("JWT_SECRET not set in .env file")
+	}
 
 	db, err := gorm.Open(postgres.Open(databaseURL), &gorm.Config{})
 	if err != nil {
