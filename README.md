@@ -1,59 +1,49 @@
 Library Management System Backend
-This is a simple backend API for managing library operations, including user authentication, book inventory, and borrowing/returning processes. It's built with Go and uses a PostgreSQL database.
+This is a backend API for a basic Library Management System, built with Go and PostgreSQL. It handles user authentication, book inventory, and borrowing/returning processes.
 
-Features
-User Management: Sign up, sign in, and role-based access control (librarian, student, general).
+✨ Key Features
+User Management: Sign up, log in, and role-based access (Librarian, Student, General).
 
-Book Management: Add/donate books, list all books.
+Book Management: Add new books, record donations, and list all books.
 
-Borrowing & Returning: Borrow books, return books, calculate overdue fines.
+Borrowing & Returns: Borrow books, return them, and calculate overdue fines.
 
-Security: JWT-based authentication and bcrypt for password hashing.
+Security: Uses JWT for API authentication and bcrypt for password hashing.
 
-Technologies Used
-Backend: Go (Golang)
+🚀 Technologies
+Go (Golang)
 
-Web Framework: Fiber v2
+Fiber v2 (Web Framework)
 
-Database: PostgreSQL
+PostgreSQL (Database)
 
-ORM: GORM
+GORM (ORM)
 
-Authentication: JWT (Golang-JWT v5)
+Golang-JWT v5 (JWT)
 
-Password Hashing: Bcrypt
+Bcrypt (Password Hashing)
 
-How to Run Locally
-Prerequisites:
+⚙️ How to Run Locally
+Prerequisites: Install Go and have a running PostgreSQL database.
 
-Install Go (1.16+).
+Database: Create a database (e.g., library) and a user (e.g., library_user) for it.
 
-Have a running PostgreSQL database.
+.env File: Create a .env file in the project root with your database connection string and a JWT secret:
 
-Database Setup:
-
-Create a database (e.g., library) and a user (e.g., library_user) with access to it.
-
-Environment File (.env):
-
-Create a .env file in the project root.
-
-Add your database connection string and a JWT secret:
-
-DATABASE_URL="host=localhost port=5432 user=library_user password=your_db_password dbname=library sslmode=disable"
+DATABASE_URL="host=localhost port=5432 user=library_user password=your_db_password dbname=library sslmode=disable TimeZone=Asia/Kolkata"
 JWT_SECRET="your_strong_jwt_secret_key"
 
 Install Dependencies:
 
 go mod tidy
 
-Run the Server:
+Run Server:
 
 go run ./cmd/server
 
 The API will be available at http://127.0.0.1:3000.
 
-API Endpoints (Examples)
+🔌 API Endpoints (Examples)
 POST /api/signup - Register a new user.
 
 POST /api/signin - Login and get a JWT token.
