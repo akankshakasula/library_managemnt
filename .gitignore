@@ -1,0 +1,26 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+*.wasm
+*.o
+*.cgo1.go
+*.cgo2.c
+*.syso
+
+# Test binary, built with go test -c
+*.test
+
+# Output of the go toolchain
+/bin/
+/pkg/
+
+# Environment variables
+.env
+
+# Local development and build artifacts
+*.log
+*.tmp
+.DS_Store
+.vscode/ # If you use VS Code and don't want to commit its settings
